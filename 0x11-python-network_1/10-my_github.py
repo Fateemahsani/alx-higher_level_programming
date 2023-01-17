@@ -1,22 +1,14 @@
 #!/usr/bin/python3
-"""Check status"""
+"""
+given username and pw as param, get your id from Github api
+usage: ./10-my_github.py [github_username] [github_pw]
+"""
+from sys import argv
 import requests
 from requests.auth import HTTPBasicAuth
-import sys
 
-
-def searchapi():
-    """status"""
-    user = str(sys.argv[1])
-    pw = str(sys.argv[2])
-    result = requests.get("https://api.github.com/user",
-                          auth=(HTTPBasicAuth(user, pw)))
-
-    try:
-        data = result.json()
-        print(data["id"])
-    except:
-        print("None")
 
 if __name__ == "__main__":
-    searchapi()
+    url = 'https://api.github.com/user'
+    r = requests.get(url, auth=HTTPBasicAuth(argv[1], argv[2]))
+    print(r.json().get('id'))

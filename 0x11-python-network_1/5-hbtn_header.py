@@ -1,14 +1,12 @@
 #!/usr/bin/python3
-"""Check status"""
+"""
+given URL as parameter, fetch URL and display value from reponse header
+usage: ./5-hbtn_header https://intranet.hbtn.io
+"""
+from sys import argv
 import requests
-import sys
 
-
-def header():
-    """status"""
-    result = requests.get(sys.argv[1])
-
-    print(result.headers.get("X-Request-Id", None))
 
 if __name__ == "__main__":
-    header()
+    r = requests.get(argv[1])
+    print(r.headers.get('X-Request-Id'))
