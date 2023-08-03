@@ -1,4 +1,3 @@
-// JQuery
-$.get('https://swapi.co/api/people/5/?format=json', function (data) {
-  $('div#character').text(data.name);
+$.get('https://swapi-api.alx-tools.com/api/people/5/?format=json', function (data) {
+  $('DIV#character').text(data.name);
 });
